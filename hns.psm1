@@ -25,13 +25,6 @@ function New-HnsNetwork
     )
 
     Begin {
-		
-	    Write-Verbose "Type: $Type"
-		Write-Verbose "Name: $Name"
-		Write-Verbose "AddressPrefix: $AddressPrefix"
-		Write-Verbose "Gateway: $Gateway"
-		Write-Verbose "DNSServer: $DNSServer"
-		
         if (!$JsonString) {
             $netobj = @{
                 Type          = $Type;
@@ -69,9 +62,6 @@ function New-HnsNetwork
         $hnsPath = "/networks/";
         $request = $JsonString;
 
-		Write-Verbose "Request: $request"
-
-		 
         Write-Verbose "Invoke-HNSRequest Method[$Method] Path[$hnsPath] Data[$request]"
 
         $output = "";
